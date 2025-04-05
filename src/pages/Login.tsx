@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
@@ -58,6 +59,7 @@ const formSchema = z.object({
 
 const Login = () => {
   const [showDashboardPreview, setShowDashboardPreview] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,7 +74,14 @@ const Login = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
-    setShowDashboardPreview(true);
+    
+    if (values.role === "employee") {
+      // Redirect to employee dashboard
+      navigate('/employee-dashboard');
+    } else {
+      // Just show preview for authority users
+      setShowDashboardPreview(true);
+    }
     // In a real app, you would handle authentication here
   };
 
