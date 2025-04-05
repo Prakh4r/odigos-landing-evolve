@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar } from "@/components/ui/avatar";
-import { MessageSquare, Users, ArrowUp, ArrowDown, MessageSquareplus } from "lucide-react";
+import { MessageSquare, Users, ArrowUp, ArrowDown, MessageSquarePlus } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 const CommunityPage = () => {
@@ -113,7 +112,7 @@ const CommunityPage = () => {
                           </div>
                         </div>
                         <Button type="submit" className="mt-4 bg-odigos-blue hover:bg-blue-600">
-                          <MessageSquareplus className="mr-2 h-4 w-4" />
+                          <MessageSquarePlus className="mr-2 h-4 w-4" />
                           Post Discussion
                         </Button>
                       </form>
