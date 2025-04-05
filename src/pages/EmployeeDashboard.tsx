@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
+import { Users, Code, MessageSquare } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import ChatAssistant from "@/components/ChatAssistant";
 import WeeklyTimetable from "@/components/WeeklyTimetable";
@@ -43,6 +45,44 @@ const EmployeeDashboard = () => {
               <ChatAssistant />
             </div>
           )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <Link to="/community" className="group">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full hover:shadow-md transition-all flex flex-col items-center justify-center text-center">
+                <Users className="h-12 w-12 text-odigos-blue mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Join Community</h3>
+                <p className="text-gray-600 mb-4">Connect with peers, participate in discussions, and join study groups</p>
+                <Button className="bg-odigos-blue hover:bg-blue-600 mt-auto group-hover:translate-y-[-2px] transition-transform">
+                  Connect Now
+                </Button>
+              </div>
+            </Link>
+            
+            <Link to="/practice" className="group">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full hover:shadow-md transition-all flex flex-col items-center justify-center text-center">
+                <Code className="h-12 w-12 text-odigos-blue mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Practice Problems</h3>
+                <p className="text-gray-600 mb-4">Apply your skills to real-world problems and build your portfolio</p>
+                <Button className="bg-odigos-blue hover:bg-blue-600 mt-auto group-hover:translate-y-[-2px] transition-transform">
+                  Start Practicing
+                </Button>
+              </div>
+            </Link>
+            
+            <div className="group">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full hover:shadow-md transition-all flex flex-col items-center justify-center text-center">
+                <MessageSquare className="h-12 w-12 text-odigos-blue mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Talk to Odigo AI</h3>
+                <p className="text-gray-600 mb-4">Get personalized learning assistance and answers to your questions</p>
+                <Button 
+                  className="bg-odigos-blue hover:bg-blue-600 mt-auto group-hover:translate-y-[-2px] transition-transform"
+                  onClick={() => setShowChatAssistant(true)}
+                >
+                  Ask Odigo
+                </Button>
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">

@@ -1,11 +1,16 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Menu, X, MessageSquare, Code, Users } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const isEmployeeView = location.pathname.includes('employee') || 
+    location.pathname.includes('community') || 
+    location.pathname.includes('practice');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,24 +22,44 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <a href="/" className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <span className="text-2xl font-bold text-odigos-blue">Odigos</span>
-              </a>
+              </Link>
             </div>
           </div>
           
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-odigos-blue transition-colors">Features</a>
-              <a href="#solutions" className="text-gray-600 hover:text-odigos-blue transition-colors">Solutions</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-odigos-blue transition-colors">Testimonials</a>
-              <a href="#pricing" className="text-gray-600 hover:text-odigos-blue transition-colors">Pricing</a>
-              <Button variant="outline" className="border-odigos-blue text-odigos-blue hover:bg-odigos-blue hover:text-white transition-colors" asChild>
-                <Link to="/login">Log in</Link>
-              </Button>
-              <Button className="bg-odigos-blue hover:bg-blue-600 text-white">
-                Get Started
-              </Button>
+              {isEmployeeView ? (
+                <>
+                  <Link to="/employee-dashboard" className={`text-gray-600 hover:text-odigos-blue transition-colors ${location.pathname === '/employee-dashboard' ? 'text-odigos-blue font-medium' : ''}`}>Dashboard</Link>
+                  <Link to="/community" className={`text-gray-600 hover:text-odigos-blue transition-colors ${location.pathname === '/community' ? 'text-odigos-blue font-medium' : ''}`}>
+                    Community
+                  </Link>
+                  <Link to="/practice" className={`text-gray-600 hover:text-odigos-blue transition-colors ${location.pathname === '/practice' ? 'text-odigos-blue font-medium' : ''}`}>
+                    Practice
+                  </Link>
+                  <Button variant="outline" className="border-odigos-blue text-odigos-blue hover:bg-odigos-blue hover:text-white transition-colors">
+                    Profile
+                  </Button>
+                  <Button className="bg-odigos-blue hover:bg-blue-600 text-white" asChild>
+                    <Link to="/">Log out</Link>
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <a href="#features" className="text-gray-600 hover:text-odigos-blue transition-colors">Features</a>
+                  <a href="#solutions" className="text-gray-600 hover:text-odigos-blue transition-colors">Solutions</a>
+                  <a href="#testimonials" className="text-gray-600 hover:text-odigos-blue transition-colors">Testimonials</a>
+                  <a href="#pricing" className="text-gray-600 hover:text-odigos-blue transition-colors">Pricing</a>
+                  <Button variant="outline" className="border-odigos-blue text-odigos-blue hover:bg-odigos-blue hover:text-white transition-colors" asChild>
+                    <Link to="/login">Log in</Link>
+                  </Button>
+                  <Button className="bg-odigos-blue hover:bg-blue-600 text-white">
+                    Get Started
+                  </Button>
+                </>
+              )}
             </div>
           </div>
           
@@ -53,26 +78,56 @@ const Navigation = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#features" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
-              Features
-            </a>
-            <a href="#solutions" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
-              Solutions
-            </a>
-            <a href="#testimonials" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
-              Testimonials
-            </a>
-            <a href="#pricing" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
-              Pricing
-            </a>
-            <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
-              <Button variant="outline" className="w-full border-odigos-blue text-odigos-blue" asChild>
-                <Link to="/login">Log in</Link>
-              </Button>
-              <Button className="w-full bg-odigos-blue hover:bg-blue-600 text-white">
-                Get Started
-              </Button>
-            </div>
+            {isEmployeeView ? (
+              <>
+                <Link to="/employee-dashboard" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/employee-dashboard' ? 'text-odigos-blue' : 'text-gray-600'} hover:text-odigos-blue hover:bg-gray-100 rounded-md`}>
+                  Dashboard
+                </Link>
+                <Link to="/community" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/community' ? 'text-odigos-blue' : 'text-gray-600'} hover:text-odigos-blue hover:bg-gray-100 rounded-md`}>
+                  <div className="flex items-center">
+                    <Users className="mr-2 h-4 w-4" />
+                    Community
+                  </div>
+                </Link>
+                <Link to="/practice" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/practice' ? 'text-odigos-blue' : 'text-gray-600'} hover:text-odigos-blue hover:bg-gray-100 rounded-md`}>
+                  <div className="flex items-center">
+                    <Code className="mr-2 h-4 w-4" />
+                    Practice
+                  </div>
+                </Link>
+                <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
+                  <Button variant="outline" className="w-full border-odigos-blue text-odigos-blue">
+                    Profile
+                  </Button>
+                  <Button className="w-full bg-odigos-blue hover:bg-blue-600 text-white" asChild>
+                    <Link to="/">Log out</Link>
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <a href="#features" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
+                  Features
+                </a>
+                <a href="#solutions" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
+                  Solutions
+                </a>
+                <a href="#testimonials" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
+                  Testimonials
+                </a>
+                <a href="#pricing" className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-odigos-blue hover:bg-gray-100 rounded-md">
+                  Pricing
+                </a>
+                <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
+                  <Button variant="outline" className="w-full border-odigos-blue text-odigos-blue" asChild>
+                    <Link to="/login">Log in</Link>
+                  </Button>
+                  <Button className="w-full bg-odigos-blue hover:bg-blue-600 text-white">
+                    Get Started
+                  </Button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
