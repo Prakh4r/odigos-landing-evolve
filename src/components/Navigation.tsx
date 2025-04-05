@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,8 +29,8 @@ const Navigation = () => {
               <a href="#solutions" className="text-gray-600 hover:text-odigos-blue transition-colors">Solutions</a>
               <a href="#testimonials" className="text-gray-600 hover:text-odigos-blue transition-colors">Testimonials</a>
               <a href="#pricing" className="text-gray-600 hover:text-odigos-blue transition-colors">Pricing</a>
-              <Button variant="outline" className="border-odigos-blue text-odigos-blue hover:bg-odigos-blue hover:text-white transition-colors">
-                Log in
+              <Button variant="outline" className="border-odigos-blue text-odigos-blue hover:bg-odigos-blue hover:text-white transition-colors" asChild>
+                <Link to="/login">Log in</Link>
               </Button>
               <Button className="bg-odigos-blue hover:bg-blue-600 text-white">
                 Get Started
@@ -65,8 +66,8 @@ const Navigation = () => {
               Pricing
             </a>
             <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
-              <Button variant="outline" className="w-full border-odigos-blue text-odigos-blue">
-                Log in
+              <Button variant="outline" className="w-full border-odigos-blue text-odigos-blue" asChild>
+                <Link to="/login">Log in</Link>
               </Button>
               <Button className="w-full bg-odigos-blue hover:bg-blue-600 text-white">
                 Get Started

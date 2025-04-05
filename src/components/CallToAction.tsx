@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   return (
@@ -18,8 +19,10 @@ const CallToAction = () => {
             Request Demo
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-            Contact Sales
+          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+            <Link to="/login">
+              Access Platform
+            </Link>
           </Button>
         </div>
       </div>
