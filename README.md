@@ -1,54 +1,11 @@
-# Welcome to your Lovable project
+# Welcome to Odigos
 
-## Project info
+## Project info:
 
-**URL**: https://lovable.dev/projects/2dfcf69c-9fb7-4f42-837e-94ccc079572c
+In today’s fast-paced corporate environment, onboarding new employees effectively remains a major challenge for organizations. Traditional training methods are often time-consuming, costly, and lack personalization. New recruits struggle to navigate complex tools and workflows without proper guidance, leading to decreased productivity and longer ramp-up times. HR departments face difficulties in delivering scalable, role-specific, and engaging training experiences that cater to individual needs. There is a clear need for a modern, cost-effective, and intelligent training solution that not only simplifies onboarding but also enhances employee engagement and performance from day one.
 
-## How can I edit this code?
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/2dfcf69c-9fb7-4f42-837e-94ccc079572c) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**URL**: https://odigos-evolve.vercel.app/
 
 ## What technologies are used for this project?
 
@@ -59,15 +16,3 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2dfcf69c-9fb7-4f42-837e-94ccc079572c) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
