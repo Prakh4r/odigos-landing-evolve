@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -78,9 +77,9 @@ const Login = () => {
     if (values.role === "employee") {
       // Redirect to employee dashboard
       navigate('/employee-dashboard');
-    } else {
-      // Just show preview for authority users
-      setShowDashboardPreview(true);
+    } else if (values.role === "authority") {
+      // Redirect to authority dashboard
+      navigate('/authority-dashboard');
     }
     // In a real app, you would handle authentication here
   };
